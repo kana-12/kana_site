@@ -3,10 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kana_site</title>
+    <title>kana_site | 推し活ノート</title>
+
+    <!-- 筆記体タイトル用フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green-main: #3c8f6b;
+            --green-dark: #205441;
+            --green-light: #e8f5ec;
+            --accent: #ffcdd9;
+            --text-main: #233127;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                         "Yu Gothic", "メイリオ", sans-serif;
+            color: var(--text-main);
+            background: #f9fbfa;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 16px 48px;
+        }
+
+        /* ===== ヘッダー・ナビ ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            background: rgba(249, 251, 250, 0.88);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--green-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 999px;
+            color: var(--green-dark);
+            background: transparent;
+        }
+
+        nav a:hover {
+            background: var(--green-light);
+        }
+
+        /* ===== ヒーロー ===== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 64px 16px 56px;
+            background: radial-gradient(circle at 0% 0%, #a9e5c2 0, transparent 55%),
+                        radial-gradient(circle at 100% 0%, #8fd8b4 0, transparent 55%),
+                        radial-gradient(circle at 0% 100%, #b7f2cf 0, transparent 55%),
+                        linear-gradient(135deg, #edf9f1, #e2f4ea);
+        }
+
+        .hero-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+
+        .chalkboard {
+            background: #173b2c;
+            border-radius: 16px;
+            padding: 20px 18px 18px;
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            color: #f7f7f7;
+        }
+
+        .chalkboard::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            pointer-events: none;
+        }
+
+        /* 筆記体タイトル */
+        .chalk-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 40px;
+            margin: 0 0 10px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            text-shadow:
+                0 0 4px rgba(0,0,0,0.4),
+                0 0 12px rgba(0,0,0,0.25);
+        }
+
+        .chalk-main {
+            font-size: 22px;
+            margin: 4px 0 4px;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-align: center;
+            text-shadow:
+                0 0 2px rgba(255,255,255,0.6),
+                0 0 12px rgba(255,255,255,0.18);
+        }
+
+        .chalk-sub {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .hero-note {
+            font-size: 13px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-note-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(60, 143, 107, 0.12);
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        section {
+            margin-top: 40px;
+        }
+
+        section h2 {
+            font-size: 18px;
+            margin: 0 0 12px;
+            padding-left: 10px;
+            border-left: 3px solid var(--green-main);
+        }
+
+        .section-note {
+            font-size: 13px;
+            color: #6a7a6f;
+            margin-bottom: 14px;
+        }
+
+        .card-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 14px 14px 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: var(--green-light);
+            color: var(--green-dark);
+            margin-right: 4px;
+        }
+
+        .card h3 {
+            font-size: 15px;
+            margin: 4px 0 4px;
+        }
+
+        .small {
+            font-size: 12px;
+            color: #7a8a7f;
+        }
+
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 8px;
+        }
+
+        .links-list a {
+            text-decoration: none;
+            background: white;
+            padding: 10px 12px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+            font-size: 13px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            font-size: 11px;
+            color: #98a59d;
+            text-align: center;
+        }
+
+        @media (min-width: 720px) {
+            .hero-inner {
+                grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+                align-items: center;
+            }
+        }
+				.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.profile-table th {
+  text-align: left;
+  padding: 4px 8px;
+  white-space: nowrap;
+  color: #2f4f4f;
+}
+
+.profile-table td {
+  padding: 4px 8px;
+}
+    </style>
 </head>
 <body>
-    <h1>こんにちは！サイトができたよ🎉</h1>
-    <p>ここに文章や画像を追加していけるよ！</p>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">KANA Oshi Log</div>
+        <nav>
+            <ul>
+                <li><a href="#about">推し紹介</a></li>
+                <li><a href="#favorite">好きな楽曲</a></li>
+                <li><a href="#timeline">イベントログ</a></li>
+                <li><a href="#links">リンク</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="chalkboard">
+            <p class="chalk-title">ADACHI KANA</p>
+            <p class="chalk-main">今日も推しがいちばん。</p>
+            <p class="chalk-sub">
+                すき！って思った瞬間をぽんぽん置いていく場所。<br>
+                わたしのちいさな佳奈ちゃんノート。
+            </p>
+        </div>
+
+        <div>
+            <div class="hero-note">
+                <span class="hero-note-badge">Oshi memo</span>
+                <span>「感じたことをメモる用」のシンプルな推し活サイト。</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="wrapper">
+
+    <!-- 推し紹介 -->
+    <section id="about">
+        <h2>推し紹介</h2>
+
+        <div class="card">
+            <span class="tag">Profile</span>
+						
+            <h3>基本情報</h3>
+
+<table class="profile-table">
+  <tr>
+    <th>名前</th>
+    <td>足立佳奈</td>
+  </tr>
+  <tr>
+    <th>誕生日</th>
+    <td>1999年10月14日</td>
+  </tr>
+	<tr>
+		<th>星座</th>
+		<td>てんびん座</td>
+	</tr>
+	<tr>
+		<th>身長</th>
+		<td>162cm</td>
+	</tr>
+	<tr>
+		<th>出身地</th>
+		<td>岐阜県海津市</td>
+	</tr>
+		
+</table>
+
+					</div>
+    </section>
+
+    <!-- 好きな楽曲 -->
+    <section id="favorite">
+        <h2>好きな楽曲メモ</h2>
+        <p class="section-note">あとで好きな曲ごとにカードを増やしていけるコーナー。</p>
+
+        <div class="card-list">
+            <article class="card">
+                <span class="tag">Song</span>
+                <h3>曲タイトルをここに</h3>
+                <p class="small">
+                    ・初めて聴いたときの感想<br>
+                    ・歌詞の好きなフレーズ<br>
+                    ・ライブで聴きたいポイント など。
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Song</span>
+                <h3>もう1曲分のメモ</h3>
+                <p class="small">
+                    まだ決まってなければ「ここに追加していく！」とだけ書いておいてOK。
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- イベントログ -->
+    <section id="timeline">
+        <h2>イベント・ライブログ</h2>
+        <p class="section-note">参加したイベントの日や、配信を観た日をメモするコーナー。</p>
+
+        <div class="card-list">
+            <div class="card">
+                <span class="tag">Live / Event</span>
+                <h3>2025-00-00 ○○ライブ</h3>
+                <p class="small">
+                    ・セトリで印象に残った曲<br>
+                    ・MCで覚えておきたい言葉<br>
+                    ・会場の雰囲気、自分の気分メモ。
+                </p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Streaming</span>
+                <h3>配信で見た日</h3>
+                <p class="small">
+                    アーカイブやテレビ出演を見た日をメモしておく用カード。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- リンク -->
+    <section id="links">
+        <h2>公式リンク</h2>
+        <p class="section-note">公式サイトやSNSなど、すぐ飛びたいリンクをまとめる場所。</p>
+
+        <ul class="links-list">
+            <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <span>公式サイト</span><span>→ 開く</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <span>X（旧Twitter）</span><span>→ 開く</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <span>Instagram</span><span>→ 開く</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <span>YouTube / MV</span><span>→ 開く</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>このサイトはファン個人による非公式ファンサイトです。</p>
+        <p>© <span id="year"></span> kana_site</p>
+    </footer>
+</main>
+
+<!-- Notion の Integration キー（safe_token.js） -->
+<script src="safe_token.js"></script>
+
+<!-- 年の自動更新＋Notionから本文を取得するコード -->
+<script>
+    // 年だけ自動更新
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Notion からプロフィール文を取得
+    async function fetchNotionProfile() {
+        const pageId = "2b841557a8528074ad4bcc9195b1a58c"; // あなたのページID
+        const token = notionToken; // safe_token.js で定義
+
+        const res = await fetch(
+            `https://api.notion.com/v1/blocks/${pageId}/children`,
+            {
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Notion-Version": "2022-06-28"
+                }
+            }
+        );
+
+        const data = await res.json();
+
+        let text = "";
+        data.results.forEach(block => {
+            if (block.paragraph && block.paragraph.rich_text.length > 0) {
+                text += block.paragraph.rich_text
+                    .map(t => t.plain_text)
+                    .join(" ") + "<br><br>";
+            }
+        });
+
+        document.getElementById("notion-profile").innerHTML = text;
+    }
+
+    fetchNotionProfile();
+</script>
+
 </body>
 </html>
