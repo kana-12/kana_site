@@ -272,6 +272,25 @@
 .profile-table td {
   padding: 4px 8px;
 }
+
+/* ▼ここから　discography-table*/
+				.discography-table {
+					width: 100%;
+					border-collapse: collapse;
+					font-size: 15px;
+					margin-top: 10px;
+				}
+
+.discography-table th {
+  text-align: left;
+  padding: 4px 4px;
+  white-space: nowrap;
+  color: #2f4f4f;
+}
+
+.discography-table td {
+  padding: 4px 8px;
+}
     </style>
 </head>
 <body>
@@ -282,7 +301,7 @@
         <nav>
             <ul>
                 <li><a href="#about">推し紹介</a></li>
-                <li><a href="#favorite">好きな楽曲</a></li>
+                <li><a href="#discography">楽曲</a></li>
                 <li><a href="#timeline">イベントログ</a></li>
                 <li><a href="#links">リンク</a></li>
             </ul>
@@ -360,31 +379,73 @@
 					</div>
     </section>
 
-    <!-- 好きな楽曲 -->
-    <section id="favorite">
-        <h2>好きな楽曲メモ</h2>
-        <p class="section-note">あとで好きな曲ごとにカードを増やしていけるコーナー。</p>
+    <!-- 過去の楽曲 -->
+    <section id="discography">
+        <h2>楽曲</h2>
+		
+		 <div class="card">
+            <span class="tag">music</span>
+			
+			<h3>Discography</h3>
+			
+<table class="discography-table">
+	<tr>
+		<th>2017年8月30日</th>
+		<td>笑顔の作り方〜キムチ〜/ココロハレテ(SINGLE)</td>
+	</tr>
+	<tr>
+		<th>2017年11月22日</th>
+		<td>フレーフレーわたし(SINGLE)</td>
+	</tr>
+	<tr>
+		<th>2018年2月28日</th>
+		<td>サクラエール(SINGLE)</td>
+	</tr>
+	<tr>
+		<th>2018年5月30日</th>
+		<td>チェンジっ！(SINGLE)</td>
+	</tr>
+	<tr>
+		<th>2018年7月16日</th>
+		<td>私今あなたに恋をしています(配信)</td>
+	</tr>
+	<tr>
+		<th>2018年8月15日</th>
+		<td>僕らのスタート(配信)</td>
+	</tr>
+	<tr>
+		<th>2018年10月17日</th>
+		<td>Yeah!Yeah!(ALBUM)</td>
+	</tr>
+	<tr>
+		<th>2019年2月1日</th>
+		<td>ウタコク(配信)</td>
+	</tr>
+	<tr>
+		<th>2019年4月24日</th>
+		<td>little flower(SINGLE)</td>
+	</tr>
+	<tr>
+		<th>2019年8月21日</th>
+		<td>ひとりよがり(SINGLE)</td>
+	</tr>
+	<tr>
+		<th>2019年10月14日</th>
+		<td>Call me(配信)</td>
+	</tr>
+	<tr>
+		<th>2019年10月14日</th>
+		<td>面影(配信)</td>
+	</tr>
+	<tr>
+		<th>2019年12月16日</th>
+		<td>話がある(配信)</td>
+	</tr>
+		
+</table>
 
-        <div class="card-list">
-            <article class="card">
-                <span class="tag">Song</span>
-                <h3>曲タイトルをここに</h3>
-                <p class="small">
-                    ・初めて聴いたときの感想<br>
-                    ・歌詞の好きなフレーズ<br>
-                    ・ライブで聴きたいポイント など。
-                </p>
-            </article>
-
-            <article class="card">
-                <span class="tag">Song</span>
-                <h3>もう1曲分のメモ</h3>
-                <p class="small">
-                    まだ決まってなければ「ここに追加していく！」とだけ書いておいてOK。
-                </p>
-            </article>
-        </div>
-    </section>
+		</div>
+	</section>
 
     <!-- イベントログ -->
     <section id="timeline">
