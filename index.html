@@ -1,333 +1,653 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
+	
     <meta charset="UTF-8">
+		
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kana_site | 推し活ノート</title>
+		
+    <title>
+		kana_site | 推し活ノート
+		</title>
 
     <!-- 筆記体タイトル用フォント -->
+		
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --green-main: #3c8f6b;
-            --green-dark: #205441;
-            --green-light: #e8f5ec;
-            --accent: #ffcdd9;
-            --text-main: #233127;
-        }
+		
+		/* ==== 変数　====*/
+		:root {
+			--green-main: #3c8f6b;
+			
+			--green-dark: #205441;
+			
+			--green-light: #e8f5ec;
+			
+      --accent: #ffcdd9;
+			
+			--text-main: #233127;
+		}
 
-        * {
-            box-sizing: border-box;
-        }
+		
+		/* ==== ベース ==== */
+    * {
+			box-sizing: border-box;
+		}
+		
+		body {
+			margin: 0;
+					
+      font-family: 
+				-apple-system, 
+				BlinkMacSystemFont, 
+				"Hiragino Sans",
+				"Yu Gothic",
+				"メイリオ",
+				sans-serif;
+						
+			color:
+				var(--text-main);
+				
+			background: #f9fbfa;
+						
+			line-height: 1.7;
+		}
+	
+		a {
+			color: inherit;
+		}
+    
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
-                         "Yu Gothic", "メイリオ", sans-serif;
-            color: var(--text-main);
-            background: #f9fbfa;
-            line-height: 1.7;
-        }
+		/* ==== レイアウト ==== */
+		.wrapper {
+			max-width: 960px;
+					
+			margin: 0 auto;
+							
+			padding: 0 16px 48px;
+		}
 
-        a {
-            color: inherit;
-        }
+		
+		/* ===== ヘッダー・ナビ ===== */		
+		header {
+			position: sticky;
+					
+			top: 0;
+								
+			z-index: 10;
+								
+			backdrop-filter: blur(8px);
+								
+			background: rgba(249,251,250,0.88);
+								
+			border-bottom: 1px solid rgba(0,0,0,0.03);
+		}
+							
+    .header-inner {
+			max-width: 960px;
+        
+			margin: 0 auto;
+            
+			padding: 10px 16px;
+           
+			display: flex;
+           
+			align-items: center;
+           
+			justify-content: space-between;
+		}
+	
+    .logo {
+			font-size: 18px;
+            
+			font-weight: 700;
+            
+			letter-spacing: 0.08em;
+            
+			color: var(--green-dark);
+		}
 
-        .wrapper {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 16px 48px;
-        }
+    nav ul {
+			display: flex;
+            
+			gap: 12px;
+            
+			list-style: none;
+           
+			margin: 0;
+           
+			padding: 0;
+            
+			font-size: 13px;
+		}
 
-        /* ===== ヘッダー・ナビ ===== */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            backdrop-filter: blur(8px);
-            background: rgba(249, 251, 250, 0.88);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-        }
+    nav a {
+			text-decoration: none;
+            
+			padding: 4px 10px;
+            
+			border-radius: 999px;
+            
+			color: var(--green-dark);
+            
+			background: transparent;}
 
-        .header-inner {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    nav a: hover {
+			background: var(--green-light);
+		}
 
-        .logo {
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--green-dark);
-        }
+    /* ===== ヒーロー ===== */
+    .hero {
+      position: relative;
+            
+			overflow: hidden;
+            
+			padding: 64px 16px 56px;
+            
+			background:
+			　radial-gradient(circle at 0% 0%, #a9e5c2 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, #8fd8b4 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, #b7f2cf 0, transparent 55%),
+        linear-gradient(135deg, #edf9f1, #e2f4ea);
+		}
 
-        nav ul {
-            display: flex;
-            gap: 12px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            font-size: 13px;
-        }
+		.hero-inner {
+			max-width: 960px;
+						
+			margin: 0 auto;
+						
+			display: grid;
+						
+			gap: 24px;
+		}
 
-        nav a {
-            text-decoration: none;
-            padding: 4px 10px;
-            border-radius: 999px;
-            color: var(--green-dark);
-            background: transparent;
-        }
+    .chalkboard {
+			background: #173b2c;
+						
+			border-radius: 16px;
+						
+			padding: 20px 18px 18px;
+						
+			box-shadow: 
+				0 22px 40px rgba(0, 0, 0, 0.15);
+            
+			position: relative;
+            
+			color: #f7f7f7;
+		}
 
-        nav a:hover {
-            background: var(--green-light);
-        }
+		.chalkboard::before {
+			content: "";
+						
+			position: absolute;
+						
+			inset: 8px;
+						
+			border-radius: 14px;
+						
+			border: 1px solid rgba(255, 255, 255, 0.12);
+						
+ 			pointer-events: none;
+		}
 
-        /* ===== ヒーロー ===== */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            padding: 64px 16px 56px;
-            background: radial-gradient(circle at 0% 0%, #a9e5c2 0, transparent 55%),
-                        radial-gradient(circle at 100% 0%, #8fd8b4 0, transparent 55%),
-                        radial-gradient(circle at 0% 100%, #b7f2cf 0, transparent 55%),
-                        linear-gradient(135deg, #edf9f1, #e2f4ea);
-        }
+		
+		/* 筆記体タイトル */
+		.chalk-title {
+			font-family: 'Great Vibes', cursive;
+						
+			font-size: 40px;
+						
+			margin: 0 0 10px;
+					
+			letter-spacing: 0.05em;
+						
+			text-align: center;
+						
+			text-shadow:
+				0 0 4px rgba(0,0,0,0.4),
+				0 0 12px rgba(0,0,0,0.25);
+		}
 
-        .hero-inner {
-            max-width: 960px;
-            margin: 0 auto;
-            display: grid;
-            gap: 24px;
-        }
+		.chalk-main {
+			font-size: 22px;
+						
+			margin: 4px 0 4px;			
+            
+			font-weight: 700;					
+           
+			letter-spacing: 0.07em;
+						
+			text-align: center;
+						
+			text-shadow: 
+				0 0 2px rgba(255,255,255,0.6),
+				0 0 12px rgba(255,255,255,0.18);
+		}
 
-        .chalkboard {
-            background: #173b2c;
-            border-radius: 16px;
-            padding: 20px 18px 18px;
-            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
-            position: relative;
-            color: #f7f7f7;
-        }
+		.chalk-sub {
+			font-size: 13px;
+						
+			opacity: 0.9;
+		}
 
-        .chalkboard::before {
-            content: "";
-            position: absolute;
-            inset: 8px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            pointer-events: none;
-        }
+		.hero-note {
+			font-size: 13px;　
+            
+			background: rgba(255, 255, 255, 0.8);
+						          
+			border-radius: 12px;
+						
+			padding: 10px 12px;			
+            
+			display: inline-flex;			
+            
+			align-items: center;
+						            
+			gap: 8px;
+					            
+			box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+		}
 
-        /* 筆記体タイトル */
-        .chalk-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 40px;
-            margin: 0 0 10px;
-            letter-spacing: 0.05em;
-            text-align: center;
-            text-shadow:
-                0 0 4px rgba(0,0,0,0.4),
-                0 0 12px rgba(0,0,0,0.25);
-        }
+		.hero-note-badge {
+			font-size: 11px;
+						
+			padding: 2px 8px;
+						
+			border-radius: 999px;
+						
+			background: rgba(60, 143, 107, 0.12);
+						
+			color: var(--green-dark);
+						
+			font-weight: 600;
+		}
 
-        .chalk-main {
-            font-size: 22px;
-            margin: 4px 0 4px;
-            font-weight: 700;
-            letter-spacing: 0.07em;
-            text-align: center;
-            text-shadow:
-                0 0 2px rgba(255,255,255,0.6),
-                0 0 12px rgba(255,255,255,0.18);
-        }
+		section {
+			margin-top: 40px;
+		}
 
-        .chalk-sub {
-            font-size: 13px;
-            opacity: 0.9;
-        }
+		section h2 {
+			font-size: 18px;
 
-        .hero-note {
-            font-size: 13px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            padding: 10px 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-        }
+			margin: 0 0 12px;
+			
+			padding-left: 10px;
+			
+			border-left: 
+				3px solid var(--green-main);
+		}
 
-        .hero-note-badge {
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: rgba(60, 143, 107, 0.12);
-            color: var(--green-dark);
-            font-weight: 600;
-        }
+		.section-note {
+			font-size: 13px;
+			
+			color: #6a7a6f;
+			
+			margin-bottom: 14px;
+		}
 
-        section {
-            margin-top: 40px;
-        }
+		.card-list {
+			display: grid;
+			
+			gap: 14px;
+		}
 
-        section h2 {
-            font-size: 18px;
-            margin: 0 0 12px;
-            padding-left: 10px;
-            border-left: 3px solid var(--green-main);
-        }
+		.card {
+			background: white;
+            
+			border-radius: 14px;
+            
+			padding: 14px 14px 12px;
+            
+			box-shadow: 
+				0 8px 18px rgba(0, 0, 0, 0.03);
+			}
 
-        .section-note {
-            font-size: 13px;
-            color: #6a7a6f;
-            margin-bottom: 14px;
-        }
+		.tag {
+			display: inline-block;
+            
+			font-size: 11px;
+            
+			padding: 2px 8px;
+            
+			border-radius: 999px;
+            
+			background: var(--green-light);
+            
+			color: var(--green-dark);
+            
+			margin-right: 4px;
+		}
 
-        .card-list {
-            display: grid;
-            gap: 14px;
-        }
+		.card h3 {
+			font-size: 15px;
+            
+			margin: 4px 0 4px;
+		}
 
-        .card {
-            background: white;
-            border-radius: 14px;
-            padding: 14px 14px 12px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
-        }
+		.small {
+			font-size: 12px;
+            
+			color: #7a8a7f;
+		}
 
-        .tag {
-            display: inline-block;
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: var(--green-light);
-            color: var(--green-dark);
-            margin-right: 4px;
-        }
+		.links-list {
+			list-style: none;
+            
+			padding: 0;
+            
+			margin: 0;
+            				
+			display: grid;
+            
+			gap: 8px;
+		}
 
-        .card h3 {
-            font-size: 15px;
-            margin: 4px 0 4px;
-        }
+		.links-list a {           
+			text-decoration: none;
+            
+			background: white;
+            
+			padding: 10px 12px;
+            
+			border-radius: 999px;
+            
+			display: inline-flex;
+            
+			align-items: center;
+            
+			justify-content: space-between;
+            
+			box-shadow: 
+				0 8px 18px rgba(0, 0, 0, 0.03);
+            
+			font-size: 13px;
+		}
 
-        .small {
-            font-size: 12px;
-            color: #7a8a7f;
-        }
+		footer {          
+			margin-top: 40px;
+            
+			padding-top: 20px;
+            
+			border-top: 
+				1px solid rgba(0, 0, 0, 0.03);
+            
+			font-size: 11px;
+            
+			color: #98a59d;
+            
+			text-align: center;
+		}
 
-        .links-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            gap: 8px;
-        }
+	@media (min-width: 720px) {
+		.hero-inner {
+			grid-template-columns: 
+				minmax(0, 3fr) minmax(0, 2.2fr);
+               
+			align-items: center;
+		}
+	}
+				
+		.profile-table {
+			width: 100%;
+ 
+			border-collapse: collapse;
+  
+			font-size: 15px;
+  
+			margin-top: 10px;
+		}
 
-        .links-list a {
-            text-decoration: none;
-            background: white;
-            padding: 10px 12px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
-            font-size: 13px;
-        }
+		.profile-table th {
+			text-align: left;
+			
+			padding: 4px 8px;
+  
+			white-space: nowrap;
+  
+			color: #2f4f4f;
+		}
 
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
-            font-size: 11px;
-            color: #98a59d;
-            text-align: center;
-        }
+		.profile-table td {
+			padding: 4px 8px;
+		}
 
-        @media (min-width: 720px) {
-            .hero-inner {
-                grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-                align-items: center;
-            }
-        }
-				.profile-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-  margin-top: 10px;
-}
 
-.profile-table th {
-  text-align: left;
-  padding: 4px 8px;
-  white-space: nowrap;
-  color: #2f4f4f;
-}
+		/* ▼ここから　discography-table*/
+		.discography-table {
+			width: 100%;
+					
+			border-collapse: collapse;
+					
+			font-size: 15px;
+					
+			margin-top: 10px;
+		}
 
-.profile-table td {
-  padding: 4px 8px;
-}
+		.discography-table th {
+			text-align: left;
+  
+			padding: 4px 4px;
+  
+			white-space: nowrap;
+  
+			color: #2f4f4f;
+		}
 
-/* ▼ここから　discography-table*/
-				.discography-table {
-					width: 100%;
-					border-collapse: collapse;
-					font-size: 15px;
-					margin-top: 10px;
-				}
+		.discography-table td {
+			padding: 4px 8px;
+		}
 
-.discography-table th {
-  text-align: left;
-  padding: 4px 4px;
-  white-space: nowrap;
-  color: #2f4f4f;
-}
+		.release {
+			padding: 10px 14px;
+  
+			border-radius: 12px;
+  
+			background: #ffffff;
+  
+			box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  
+			margin-bottom: 10px;
+		}
 
-.discography-table td {
-  padding: 4px 8px;
-}
+		.release summary {
+			cursor: pointer;
+			
+			font-size: 14px;
+  
+			font-weight: 600;
+  
+			color: #205441;
+  
+			list-style: none;
+		}
+
+
+		/* デフォルトの矢印を消す */
+		.release summary::-webkit-details-marker {
+			display: none;
+		}
+
+		/* 左にアイコン追加（可愛い感じ） */
+		.tracks {
+			margin-top: 8px;
+  
+			padding-left: 18px;
+  
+			font-size: 13px;
+  
+			color: #444;
+		}
+
+		.tracks {
+			list-style: none;  
+  
+			padding-left: 0;
+  
+			margin-top: 10px;
+		}
+
+
+		.tracks li {
+			padding: 3px 0;
+  
+			font-size: 13px;
+  
+			color: #444;
+		}
+
+		.tracks {
+			list-style: none;
+  
+			padding-left: 0;
+  
+			counter-reset: track;
+		}
+
+		.tracks li {
+			counter-increment: track;
+ 
+			margin: 8px 0;
+			
+			/* 丸と文字を横一列に */
+			display: flex;       
+			
+			/* 縦の真ん中をそろえる */	
+			align-items: center; 
+			
+			/* 丸と文字の間のすき間 */		
+			gap: 8px;               
+		}
+
+		/* 深緑の丸アイコン 01,02,03... */
+		.tracks li::before {
+			content: 
+				counter(track, decimal-leading-zero);
+  
+			width: 20px;
+  
+			height: 20px;
+  
+			background: #205441;
+  
+			color: #ffffff;
+  
+			border-radius: 50%;
+  
+			display: flex;
+  
+			justify-content: center;
+  
+			align-items: center;
+  
+			font-size: 10px;
+  
+			font-weight: bold;
+			
+			flex-shrink: 0; 
+		}
+
+		/* 楽曲リストのsummaryレイアウト */
+		.release-summary {
+			display: flex;
+			
+			flex-direction: column;  
+			
+			gap: 2px;
+		}
+
+		/* 日付 */
+		.release-date {
+			font-size: 12px;
+			color: #4a7a63;
+			opacity: 0.9;
+		}
+
+		/* タイトル部分（今までの見た目メイン） */
+		.release-title {
+			font-size: 14px;
+  
+			font-weight: 600;
+  
+			color: #205441;
+		}
+
     </style>
+		
 </head>
+
+
 <body>
 
-<header>
+	<header>
+	
     <div class="header-inner">
-        <div class="logo">KANA Oshi Log</div>
-        <nav>
+			
+        <div class="logo">
+					KANA Oshi Log
+				</div>
+        
+				<nav>
             <ul>
-                <li><a href="#about">推し紹介</a></li>
-                <li><a href="#discography">楽曲</a></li>
-                <li><a href="#timeline">イベントログ</a></li>
-                <li><a href="#links">リンク</a></li>
+            	<li><a href="#about">
+							推し紹介
+							</a></li>
+							
+							<li><a href="#discography">
+							楽曲
+							</a></li>
+							
+							<li><a href="#timeline">
+							イベントログ
+							</a></li
+							
+							<li><a href="#links">
+							リンク
+							</a></li>					
             </ul>
         </nav>
+				
     </div>
-</header>
+		
+	</header>
 
 <section class="hero">
+	
     <div class="hero-inner">
+			
         <div class="chalkboard">
-            <p class="chalk-title">ADACHI KANA</p>
-            <p class="chalk-main">今日も推しがいちばん。</p>
+					
+            <p class="chalk-title">
+							ADACHI KANA
+						</p>
+            <p class="chalk-main">
+							今日も推しがいちばん。
+						</p>
             <p class="chalk-sub">
-                すき！って思った瞬間をぽんぽん置いていく場所。<br>
-                わたしのちいさな佳奈ちゃんノート。
+							好きな瞬間をぽんぽん置いていく場所。<br>
+							わたしのちいさな佳奈ちゃんノート。
             </p>
         </div>
 
-        <div>
+				<div>
             <div class="hero-note">
-                <span class="hero-note-badge">Oshi memo</span>
-                <span>「感じたことをメモる用」のシンプルな推し活サイト。</span>
-            </div>
+							<span class="hero-note-badge">
+							Oshi memo
+							</span>
+							<span>
+							「感じたことをメモる用」のシンプルな推し活サイト。
+							</span>
+            
+						</div>
+						
         </div>
-    </div>
+   
+			</div>
+		
 </section>
+
 
 <main class="wrapper">
 
@@ -381,71 +701,116 @@
 
     <!-- 過去の楽曲 -->
     <section id="discography">
-        <h2>楽曲</h2>
-		
-		 <div class="card">
-            <span class="tag">music</span>
-			
-			<h3>Discography</h3>
-			
-<table class="discography-table">
-	<tr>
-		<th>2017年8月30日</th>
-		<td>笑顔の作り方〜キムチ〜/ココロハレテ(SINGLE)</td>
-	</tr>
-	<tr>
-		<th>2017年11月22日</th>
-		<td>フレーフレーわたし(SINGLE)</td>
-	</tr>
-	<tr>
-		<th>2018年2月28日</th>
-		<td>サクラエール(SINGLE)</td>
-	</tr>
-	<tr>
-		<th>2018年5月30日</th>
-		<td>チェンジっ！(SINGLE)</td>
-	</tr>
-	<tr>
-		<th>2018年7月16日</th>
-		<td>私今あなたに恋をしています(配信)</td>
-	</tr>
-	<tr>
-		<th>2018年8月15日</th>
-		<td>僕らのスタート(配信)</td>
-	</tr>
-	<tr>
-		<th>2018年10月17日</th>
-		<td>Yeah!Yeah!(ALBUM)</td>
-	</tr>
-	<tr>
-		<th>2019年2月1日</th>
-		<td>ウタコク(配信)</td>
-	</tr>
-	<tr>
-		<th>2019年4月24日</th>
-		<td>little flower(SINGLE)</td>
-	</tr>
-	<tr>
-		<th>2019年8月21日</th>
-		<td>ひとりよがり(SINGLE)</td>
-	</tr>
-	<tr>
-		<th>2019年10月14日</th>
-		<td>Call me(配信)</td>
-	</tr>
-	<tr>
-		<th>2019年10月14日</th>
-		<td>面影(配信)</td>
-	</tr>
-	<tr>
-		<th>2019年12月16日</th>
-		<td>話がある(配信)</td>
-	</tr>
-		
-</table>
+  <h2>楽曲</h2>
+  <p class="section-note">シングルやアルバムをタップすると詳細が開くよ。</p>
 
-		</div>
-	</section>
+  <div class="card">
+
+    <details class="release">
+			
+      <summary class="release-summary">
+				
+  <span class="release-date">
+		
+		2017年8月30日
+	</span>
+	
+  <span class="release-title">
+		
+	笑顔の作り方〜キムチ〜／ココロハレテ（SINGLE）
+	
+</span>
+	
+</summary>
+
+      <ul class="tracks">
+				
+				<li>笑顔の作り方〜キムチ〜</li>
+				<li>ココロハレテ</li>
+				<li>だいじょうぶっ！</li>
+				
+			</ul>
+			
+    </details>
+
+    <details class="release">
+			
+      <summary class="release-summary">
+				
+		<span class="release-date">2017年11月22日</span>
+		
+		<span class="release-title">フレーフレーわたし（SINGLE）</span>
+		
+		</summary>
+		
+			<ul class="tracks">
+				
+				<li>フレーフレーわたし</li>
+				<li>君とクリスマス</li>
+				<li>いいね！</li>
+				
+			</ul>
+			
+    </details>
+
+    <details class="release">
+      <summary>2018年2月28日：サクラエール（SINGLE）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2018年5月30日：チェンジ！（SINGLE）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2018年7月16日：私今あなたに恋をしています（配信）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2018年8月15日：僕らのスタート（配信）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2018年10月17日：Yeah!Yeah!（ALBUM）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2019年2月21日：ウタコク（配信）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2019年4月24日：little flower（SINGLE）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2019年8月21日：ひとりよがり（SINGLE）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2019年10月14日：Call me（配信）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2019年10月14日：画像（配信）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2019年12月16日：話がある（配信）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2020年1月15日：Good day（SINGLE）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2020年2月12日：I（ALBUM）</summary>
+    </details>
+
+    <details class="release">
+      <summary>2020年8月31日：朝になったら削除します（配信）</summary>
+    </details>
+
+  </div>
+</section>
 
     <!-- イベントログ -->
     <section id="timeline">
