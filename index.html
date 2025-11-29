@@ -1,830 +1,1529 @@
 <!DOCTYPE html>
-
-<html lang="ja">
-
-<head>
-	
-    <meta charset="UTF-8">
+	<html lang="ja">
+		<head>	
+    		<meta charset="UTF-8">
 		
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-    <title>
-		kana_site | 推し活ノート
-		</title>
+    		<title>
+				kana_site | 推し活ノート
+			</title>
 
-    <!-- 筆記体タイトル用フォント -->
+    		<!-- 筆記体タイトル用フォント -->
 		
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-    <style>
-		
-		/* ==== 変数　====*/
-		:root {
-			--green-main: #3c8f6b;
+   			<style>		
+				/* ==== 変数　====*/
+				:root {
+					--green-main: #3c8f6b;
 			
-			--green-dark: #205441;
+					--green-dark: #205441;
 			
-			--green-light: #e8f5ec;
+					--green-light: #e8f5ec;
 			
-      --accent: #ffcdd9;
+    				--accent: #ffcdd9;
 			
-			--text-main: #233127;
-		}
-
+					--text-main: #233127;
+				}
 		
-		/* ==== ベース ==== */
-    * {
-			box-sizing: border-box;
-		}
+				/* ==== ベース ==== */
+    			* {
+					box-sizing: border-box;
+				}
 		
-		body {
-			margin: 0;
+				body {
+					margin: 0;
 					
-      font-family: 
-				-apple-system, 
-				BlinkMacSystemFont, 
-				"Hiragino Sans",
-				"Yu Gothic",
-				"メイリオ",
-				sans-serif;
+      				font-family: 
+						-apple-system, 
+						BlinkMacSystemFont, 
+						"Hiragino Sans",
+						"Yu Gothic",
+						"メイリオ",
+						sans-serif;
 						
-			color:
-				var(--text-main);
+					color: var(--text-main);
 				
-			background: #f9fbfa;
+					background: #f9fbfa;
 						
-			line-height: 1.7;
-		}
+					line-height: 1.7;
+				}
 	
-		a {
-			color: inherit;
-		}
+				a {
+					color: inherit;
+				}
     
 
-		/* ==== レイアウト ==== */
-		.wrapper {
-			max-width: 960px;
+				/* ==== レイアウト ==== */
+				.wrapper {
+					max-width: 960px;
 					
-			margin: 0 auto;
+					margin: 0 auto;
 							
-			padding: 0 16px 48px;
-		}
+					padding: 0 16px 48px;
+				}
 
 		
-		/* ===== ヘッダー・ナビ ===== */		
-		header {
-			position: sticky;
+				/* ===== ヘッダー・ナビ ===== */		
+				header {
+					position: sticky;
 					
-			top: 0;
+					top: 0;
 								
-			z-index: 10;
+					z-index: 10;
 								
-			backdrop-filter: blur(8px);
+					backdrop-filter: blur(8px);
 								
-			background: rgba(249,251,250,0.88);
+					background: rgba(249,251,250,0.88);
 								
-			border-bottom: 1px solid rgba(0,0,0,0.03);
-		}
+					border-bottom: 1px solid rgba(0,0,0,0.03);
+				}
 							
-    .header-inner {
-			max-width: 960px;
-        
-			margin: 0 auto;
-            
-			padding: 10px 16px;
-           
-			display: flex;
-           
-			align-items: center;
-           
-			justify-content: space-between;
-		}
+				.header-inner {
+					max-width: 960px;       
+			
+					margin: 0 auto;            
+			
+					padding: 10px 16px;          
+			
+					display: flex;           
+			
+					align-items: center;          
+			
+					justify-content: space-between;	
+				}
 	
-    .logo {
-			font-size: 18px;
+				.logo {
+					font-size: 18px;
             
-			font-weight: 700;
+					font-weight: 700;
             
-			letter-spacing: 0.08em;
+					letter-spacing: 0.08em;
             
-			color: var(--green-dark);
-		}
+					color: var(--green-dark);
+				}
 
-    nav ul {
-			display: flex;
+				nav ul {
+					display: flex;
             
-			gap: 12px;
+					gap: 12px;
             
-			list-style: none;
+					list-style: none;
            
-			margin: 0;
+					margin: 0;
            
-			padding: 0;
+					padding: 0;
             
-			font-size: 13px;
-		}
+					font-size: 13px;
+				}
 
-    nav a {
-			text-decoration: none;
+				nav a {
+					text-decoration: none;
             
-			padding: 4px 10px;
+					padding: 4px 10px;
             
-			border-radius: 999px;
+					border-radius: 999px;
             
-			color: var(--green-dark);
+					color: var(--green-dark);
             
-			background: transparent;}
+					background: transparent;
+				}
 
-    nav a: hover {
-			background: var(--green-light);
-		}
+				nav a hover {
+					background: var(--green-light);
+				}
 
-    /* ===== ヒーロー ===== */
-    .hero {
-      position: relative;
+				/* ===== ヒーロー ===== */
+				.hero {
+					position: relative;
             
-			overflow: hidden;
+					overflow: hidden;
             
-			padding: 64px 16px 56px;
+					padding: 64px 16px 56px;
             
-			background:
-			　radial-gradient(circle at 0% 0%, #a9e5c2 0, transparent 55%),
-        radial-gradient(circle at 100% 0%, #8fd8b4 0, transparent 55%),
-        radial-gradient(circle at 0% 100%, #b7f2cf 0, transparent 55%),
-        linear-gradient(135deg, #edf9f1, #e2f4ea);
-		}
+					background:
+					radial-gradient(circle at 0% 0%, #a9e5c2 0, transparent 55%),
+        
+					radial-gradient(circle at 100% 0%, #8fd8b4 0, transparent 55%),
+        
+					radial-gradient(circle at 0% 100%, #b7f2cf 0, transparent 55%),
+        
+					linear-gradient(135deg, #edf9f1, #e2f4ea);
+				}
 
-		.hero-inner {
-			max-width: 960px;
+				.hero-inner {
+					max-width: 960px;
 						
-			margin: 0 auto;
+					margin: 0 auto;
 						
-			display: grid;
+					display: grid;
 						
-			gap: 24px;
-		}
+					gap: 24px;
+				}
 
-    .chalkboard {
-			background: #173b2c;
+				.chalkboard {
+					background: #173b2c;
 						
-			border-radius: 16px;
-						
-			padding: 20px 18px 18px;
-						
-			box-shadow: 
-				0 22px 40px rgba(0, 0, 0, 0.15);
-            
-			position: relative;
-            
-			color: #f7f7f7;
-		}
-
-		.chalkboard::before {
-			content: "";
-						
-			position: absolute;
-						
-			inset: 8px;
-						
-			border-radius: 14px;
-						
-			border: 1px solid rgba(255, 255, 255, 0.12);
-						
- 			pointer-events: none;
-		}
-
-		
-		/* 筆記体タイトル */
-		.chalk-title {
-			font-family: 'Great Vibes', cursive;
-						
-			font-size: 40px;
-						
-			margin: 0 0 10px;
+					border-radius: 16px;
 					
-			letter-spacing: 0.05em;
+					padding: 20px 18px 18px;
 						
-			text-align: center;
-						
-			text-shadow:
-				0 0 4px rgba(0,0,0,0.4),
-				0 0 12px rgba(0,0,0,0.25);
-		}
-
-		.chalk-main {
-			font-size: 22px;
-						
-			margin: 4px 0 4px;			
+					box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
             
-			font-weight: 700;					
+					position: relative;
+            
+					color: #f7f7f7;
+				}
+
+				.chalkboard::before {
+					content: "";
+						
+					position: absolute;
+						
+					inset: 8px;
+						
+					border-radius: 14px;
+						
+					border: 1px solid rgba(255, 255, 255, 0.12);
+						
+					pointer-events: none;
+				}
+		
+				/* 筆記体タイトル */
+				.chalk-title {
+					font-family: 'Great Vibes', cursive;
+						
+					font-size: 40px;
+						
+					margin: 0 0 10px;
+					
+					letter-spacing: 0.05em;
+						
+					text-align: center;
+						
+					text-shadow:0 0 4px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.25);
+				}
+
+				.chalk-main {
+					font-size: 22px;
+						
+					margin: 4px 0 4px;			
+            
+					font-weight: 700;					
            
-			letter-spacing: 0.07em;
+					letter-spacing: 0.07em;
 						
-			text-align: center;
+					text-align: center;
 						
-			text-shadow: 
-				0 0 2px rgba(255,255,255,0.6),
-				0 0 12px rgba(255,255,255,0.18);
-		}
+					text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 12px rgba(255, 255, 255, 0.18);
+				}
 
-		.chalk-sub {
-			font-size: 13px;
+				.chalk-sub {
+					font-size: 13px;
 						
-			opacity: 0.9;
-		}
+					opacity: 0.9;
+				}
 
-		.hero-note {
-			font-size: 13px;　
+				.hero-note {
+					font-size: 13px;
             
-			background: rgba(255, 255, 255, 0.8);
+					background: rgba(255, 255, 255, 0.8);
 						          
-			border-radius: 12px;
+					border-radius: 12px;
 						
-			padding: 10px 12px;			
+					padding: 10px 12px;			
             
-			display: inline-flex;			
+					display: inline-flex;			
             
-			align-items: center;
+					align-items: center;
 						            
-			gap: 8px;
+					gap: 8px;
 					            
-			box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-		}
+					box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+				}
 
-		.hero-note-badge {
-			font-size: 11px;
+				.hero-note-badge {
+					font-size: 11px;
 						
-			padding: 2px 8px;
+					padding: 2px 8px;
 						
-			border-radius: 999px;
+					border-radius: 999px;
 						
-			background: rgba(60, 143, 107, 0.12);
+					background: rgba(60, 143, 107, 0.12);
 						
-			color: var(--green-dark);
+					color: var(--green-dark);
 						
-			font-weight: 600;
-		}
+					font-weight: 600;
+				}
 
-		section {
-			margin-top: 40px;
-		}
+				section {
+					margin-top: 40px;
+				}
 
-		section h2 {
-			font-size: 18px;
+				section h2 {
+					font-size: 18px;
 
-			margin: 0 0 12px;
+					margin: 0 0 12px;
 			
-			padding-left: 10px;
+					padding-left: 10px;
 			
-			border-left: 
-				3px solid var(--green-main);
-		}
+					border-left: 3px solid var(--green-main);
+				}
 
-		.section-note {
-			font-size: 13px;
+				.section-note {
+					font-size: 13px;
 			
-			color: #6a7a6f;
+					color: #6a7a6f;
 			
-			margin-bottom: 14px;
-		}
+					margin-bottom: 14px;
+				}
 
-		.card-list {
-			display: grid;
+				.card-list {
+					display: grid;
 			
-			gap: 14px;
-		}
+					gap: 14px;
+				}
 
-		.card {
-			background: white;
+				.card {
+					background: white;
             
-			border-radius: 14px;
+					border-radius: 14px;
             
-			padding: 14px 14px 12px;
-            
-			box-shadow: 
-				0 8px 18px rgba(0, 0, 0, 0.03);
-			}
+					padding: 14px 14px 12px;
+			
+					box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+				}
 
-		.tag {
-			display: inline-block;
+				.tag {
+					display: inline-block;
             
-			font-size: 11px;
+					font-size: 11px;
             
-			padding: 2px 8px;
+					padding: 2px 8px;
             
-			border-radius: 999px;
+					border-radius: 999px;
             
-			background: var(--green-light);
+					background: var(--green-light);
             
-			color: var(--green-dark);
+					color: var(--green-dark);
             
-			margin-right: 4px;
-		}
+					margin-right: 4px;
+				}
 
-		.card h3 {
-			font-size: 15px;
+				.card h3 {
+					font-size: 15px;
             
-			margin: 4px 0 4px;
-		}
+					margin: 4px 0 4px;
+				}
 
-		.small {
-			font-size: 12px;
+				.small {
+					font-size: 12px;
             
-			color: #7a8a7f;
-		}
+					color: #7a8a7f;
+				}
 
-		.links-list {
-			list-style: none;
+				.links-list {
+					list-style: none;
             
-			padding: 0;
+					padding: 0;
             
-			margin: 0;
+					margin: 0;
             				
-			display: grid;
+					display: grid;
             
-			gap: 8px;
-		}
+					gap: 8px;
+				}
 
-		.links-list a {           
-			text-decoration: none;
+				.links-list a {           
+					text-decoration: none;
             
-			background: white;
+					background: white;
             
-			padding: 10px 12px;
+					padding: 10px 12px;
             
-			border-radius: 999px;
+					border-radius: 999px;
             
-			display: inline-flex;
+					display: inline-flex;
             
-			align-items: center;
+					align-items: center;
             
-			justify-content: space-between;
+					justify-content: space-between;
             
-			box-shadow: 
-				0 8px 18px rgba(0, 0, 0, 0.03);
+					box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
             
-			font-size: 13px;
-		}
+					font-size: 13px;
+				}
 
-		footer {          
-			margin-top: 40px;
+				footer {          
+					margin-top: 40px;
             
-			padding-top: 20px;
+					padding-top: 20px;
             
-			border-top: 
-				1px solid rgba(0, 0, 0, 0.03);
+					border-top: 1px solid rgba(0, 0, 0, 0.03);
             
-			font-size: 11px;
+					font-size: 11px;
             
-			color: #98a59d;
+					color: #98a59d;
             
-			text-align: center;
-		}
+					text-align: center;
+				}
 
-	@media (min-width: 720px) {
-		.hero-inner {
-			grid-template-columns: 
-				minmax(0, 3fr) minmax(0, 2.2fr);
+				@media (min-width: 720px) {
+					.hero-inner {
+							grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
                
-			align-items: center;
-		}
-	}
+							align-items: center;
+					}
+				}
 				
-		.profile-table {
-			width: 100%;
+				.profile-table {
+					width: 100%;
  
-			border-collapse: collapse;
+					border-collapse: collapse;
   
-			font-size: 15px;
+					font-size: 15px;
   
-			margin-top: 10px;
-		}
+					margin-top: 10px;
+				}
 
-		.profile-table th {
-			text-align: left;
+				.profile-table th {
+					text-align: left;
 			
-			padding: 4px 8px;
+					padding: 4px 8px;
   
-			white-space: nowrap;
+					white-space: nowrap;
   
-			color: #2f4f4f;
-		}
+					color: #2f4f4f;
+				}
 
-		.profile-table td {
-			padding: 4px 8px;
-		}
+				.profile-table td {
+					padding: 4px 8px;
+				}
 
-
-		/* ▼ここから　discography-table*/
-		.discography-table {
-			width: 100%;
+				/* discography-table*/
+				.discography-table {
+					width: 100%;
 					
-			border-collapse: collapse;
+					border-collapse: collapse;
 					
-			font-size: 15px;
+					font-size: 15px;
 					
-			margin-top: 10px;
-		}
+					margin-top: 10px;
+				}
 
-		.discography-table th {
-			text-align: left;
+				.discography-table th {
+					text-align: left;
   
-			padding: 4px 4px;
+					padding: 4px 4px;
   
-			white-space: nowrap;
+					white-space: nowrap;
   
-			color: #2f4f4f;
-		}
+					color: #2f4f4f;
+				}
 
-		.discography-table td {
-			padding: 4px 8px;
-		}
+				.discography-table td {
+					padding: 4px 8px;
+				}
 
-		.release {
-			padding: 10px 14px;
+				.release {
+					padding: 10px 14px;
   
-			border-radius: 12px;
+					border-radius: 12px;
   
-			background: #ffffff;
+					background: #ffffff;
   
-			box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+					box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   
-			margin-bottom: 10px;
-		}
+					margin-bottom: 10px;
+				}
 
-		.release summary {
-			cursor: pointer;
+				.release summary {
+					cursor: pointer;
 			
-			font-size: 14px;
+					font-size: 14px;
   
-			font-weight: 600;
+					font-weight: 600;
   
-			color: #205441;
+					color: #205441;
   
-			list-style: none;
-		}
+					list-style: none;
+				}
+
+				/* デフォルトの矢印を消す */
+				.release summary::-webkit-details-marker {
+					display: none;
+				}
+
+				/* 左にアイコン追加（可愛い感じ） */
+				.tracks {
+					margin-top: 8px;
+  
+					padding-left: 18px;
+  
+					font-size: 13px;
+  
+					color: #444;
+				}
+
+				.tracks {
+					list-style: none;  
+					
+					padding-left: 0;
+
+					margin-top: 10px;
+				}
 
 
-		/* デフォルトの矢印を消す */
-		.release summary::-webkit-details-marker {
-			display: none;
-		}
+				.tracks li {
+					padding: 3px 0;
+  
+					font-size: 13px;
+  
+					color: #444;
+				}
 
-		/* 左にアイコン追加（可愛い感じ） */
-		.tracks {
-			margin-top: 8px;
+				.tracks {
+					list-style: none;
   
-			padding-left: 18px;
+					padding-left: 0;
   
-			font-size: 13px;
-  
-			color: #444;
-		}
+					counter-reset: track;
+				}
 
-		.tracks {
-			list-style: none;  
-  
-			padding-left: 0;
-  
-			margin-top: 10px;
-		}
-
-
-		.tracks li {
-			padding: 3px 0;
-  
-			font-size: 13px;
-  
-			color: #444;
-		}
-
-		.tracks {
-			list-style: none;
-  
-			padding-left: 0;
-  
-			counter-reset: track;
-		}
-
-		.tracks li {
-			counter-increment: track;
+				.tracks li {
+					counter-increment: track;
  
-			margin: 8px 0;
+					margin: 8px 0;
 			
-			/* 丸と文字を横一列に */
-			display: flex;       
+					display: flex;       
 			
-			/* 縦の真ん中をそろえる */	
-			align-items: center; 
+					align-items: center; 
+
+					gap: 8px;               
+				}
+
+				/* 深緑の丸アイコン 01,02,03... */
+				.tracks li::before {
+					content: counter(track, decimal-leading-zero);
+  
+					width: 20px;
+  
+					height: 20px;
+  
+					background: #205441;
+  
+					color: #ffffff;
+  
+					border-radius: 50%;
+  
+					display: flex;
+  
+					justify-content: center;
+  
+					align-items: center;
+  
+					font-size: 10px;
+  
+					font-weight: bold;
 			
-			/* 丸と文字の間のすき間 */		
-			gap: 8px;               
-		}
+					flex-shrink: 0; 
+				}
 
-		/* 深緑の丸アイコン 01,02,03... */
-		.tracks li::before {
-			content: 
-				counter(track, decimal-leading-zero);
-  
-			width: 20px;
-  
-			height: 20px;
-  
-			background: #205441;
-  
-			color: #ffffff;
-  
-			border-radius: 50%;
-  
-			display: flex;
-  
-			justify-content: center;
-  
-			align-items: center;
-  
-			font-size: 10px;
-  
-			font-weight: bold;
+				/* 楽曲リストのsummaryレイアウト */
+				.release-summary {
+					display: flex;
 			
-			flex-shrink: 0; 
-		}
-
-		/* 楽曲リストのsummaryレイアウト */
-		.release-summary {
-			display: flex;
+					flex-direction: column;  
 			
-			flex-direction: column;  
-			
-			gap: 2px;
-		}
+					gap: 2px;
+				}
 
-		/* 日付 */
-		.release-date {
-			font-size: 12px;
-			color: #4a7a63;
-			opacity: 0.9;
-		}
+				/* 日付 */
+				.release-date {
+					font-size: 12px;
+					color: #4a7a63;
+					opacity: 0.9;
+				}
 
-		/* タイトル部分（今までの見た目メイン） */
-		.release-title {
-			font-size: 14px;
+				/* タイトル部分（今までの見た目メイン） */
+				.release-title {
+					font-size: 14px;
   
-			font-weight: 600;
+					font-weight: 600;
   
-			color: #205441;
-		}
-
-    </style>
-		
-</head>
+					color: #205441;
+				}
+    		</style>		
+		</head>
 
 
-<body>
-
-	<header>
-	
-    <div class="header-inner">
-			
-        <div class="logo">
-					KANA Oshi Log
-				</div>
+		<body>
+			<header>	
+				<div class="header-inner">			
+       				 <div class="logo">
+						KANA Oshi Log
+					</div>
         
-				<nav>
-            <ul>
-            	<li><a href="#about">
-							推し紹介
-							</a></li>
+					<nav>
+           				<ul>
+            				<li>
+								<a href="#about">
+									推し紹介
+								</a>
+							</li>
 							
-							<li><a href="#discography">
-							楽曲
-							</a></li>
+							<li>
+								<a href="#discography">
+									楽曲
+								</a>
+							</li>
 							
-							<li><a href="#timeline">
-							イベントログ
-							</a></li
+							<li>
+								<a href="#timeline">
+									イベントログ
+								</a>
+							</li>
 							
-							<li><a href="#links">
-							リンク
-							</a></li>					
-            </ul>
-        </nav>
-				
-    </div>
-		
-	</header>
+							<li>
+								<a href="#links">
+									リンク
+								</a>
+							</li>					
+            			</ul>
+       	 			</nav>				
+    			</div>		
+			</header>
 
-<section class="hero">
-	
-    <div class="hero-inner">
-			
-        <div class="chalkboard">
-					
-            <p class="chalk-title">
+			<section class="hero">	
+    			<div class="hero-inner">			
+	       			<div class="chalkboard">					
+           				<p class="chalk-title">
 							ADACHI KANA
 						</p>
-            <p class="chalk-main">
+            
+						<p class="chalk-main">
 							今日も推しがいちばん。
 						</p>
-            <p class="chalk-sub">
-							好きな瞬間をぽんぽん置いていく場所。<br>
-							わたしのちいさな佳奈ちゃんノート。
-            </p>
-        </div>
-
-				<div>
-            <div class="hero-note">
-							<span class="hero-note-badge">
-							Oshi memo
-							</span>
-							<span>
-							「感じたことをメモる用」のシンプルな推し活サイト。
-							</span>
             
-						</div>
+						<p class="chalk-sub">
+							好きな瞬間を残す場所。<br>
+							あだっちーず思い出ノート。
+						</p>
+        			</div>
+
+					<div>
+            			<div class="hero-note">
+							<span class="hero-note-badge">
+								Oshi memo
+							</span>
 						
-        </div>
-   
-			</div>
-		
-</section>
+							<span>
+								「感じたことをメモる」<br>
+								私の推し活サイト
+							</span>            
+						</div>						
+					</div>  
+				</div>		
+			</section>
 
 
-<main class="wrapper">
-
-    <!-- 推し紹介 -->
-    <section id="about">
-        <h2>推し紹介</h2>
-
-        <div class="card">
-            <span class="tag">Profile</span>
+			<main class="wrapper">
+   				<!-- 推し紹介 -->
+    			<section id="about">
+        			<h2>推し紹介</h2>
+        			
+					<div class="card">
+            			<span class="tag">Profile</span>
 						
-            <h3>基本情報</h3>
+            			<h3>基本情報</h3>
 
-<table class="profile-table">
-  <tr>
-    <th>名前</th>
-    <td>足立佳奈</td>
-  </tr>
-  <tr>
-    <th>誕生日</th>
-    <td>1999年10月14日</td>
-  </tr>
-	<tr>
-		<th>星座</th>
-		<td>てんびん座</td>
-	</tr>
-	<tr>
-		<th>身長</th>
-		<td>162cm</td>
-	</tr>
-	<tr>
-		<th>出身地</th>
-		<td>岐阜県海津市</td>
-	</tr>
-	<tr>
-	    <th>所属事務所</th>
-	    <td>SMA(ソニー・ミュージックアーティスツ)</td>
-	</tr>
-	<tr>
-	    <th>レコードレーベル</th>
-	    <td>エスエムイーレコーズ</td>
-	</tr>
-	<tr>
-	    <th>配偶者</th>
-	    <td>吉川尚輝（2024年〜）</td>
-	</tr>  
+						<table class="profile-table">
+  							<tr>
+								<th>名前</th>
+								
+								<td>足立佳奈</td>
+							</tr>
+							
+							<tr>
+								<th>誕生日</th>
+								
+								<td>1999年10月14日</td>
+							</tr>
+	
+							<tr>
+								<th>星座</th>
+								
+								<td>てんびん座</td>
+							</tr>
+	
+							<tr>
+								<th>身長</th>
+								
+								<td>162cm</td>
+							</tr>
+	
+							<tr>
+								<th>出身地</th>
 		
-</table>
-
+								<td>岐阜県海津市</td>
+							</tr>
+	
+							<tr>
+								<th>所属事務所</th>
+	    
+								<td>SMA(ソニー・ミュージックアーティスツ)</td>
+							</tr>
+	
+							<tr>
+								<th>レコードレーベル</th>
+	    
+								<td>エスエムイーレコーズ</td>
+							</tr>
+	
+							<tr>
+								<th>配偶者</th>
+	    
+								<td>吉川尚輝（2024年〜）</td>
+							</tr>  		
+						</table>
 					</div>
-    </section>
+				</section>
 
-    <!-- 過去の楽曲 -->
-    <section id="discography">
-  <h2>楽曲</h2>
-  <p class="section-note">シングルやアルバムをタップすると詳細が開くよ。</p>
+    			<!-- 過去の楽曲 -->
+    			<section id="discography">
+					<h2>楽曲</h2>
+					
+					<p class="section-note">シングルやアルバムをタップすると詳細が開くよ。</p>
 
-  <div class="card">
-
-    <details class="release">
-			
-      <summary class="release-summary">
-				
-  <span class="release-date">
-		
-		2017年8月30日
-	</span>
+					<div class="card">
+						<details class="release">			
+							<summary class="release-summary">
+								<span class="release-date">
+									2017年8月30日
+								</span>
 	
-  <span class="release-title">
-		
-	笑顔の作り方〜キムチ〜／ココロハレテ（SINGLE）
-	
-</span>
-	
-</summary>
+								<span class="release-title">
+									笑顔の作り方〜キムチ〜/ココロハレテ（SINGLE）
+								</span>
+							</summary>
 
-      <ul class="tracks">
+							<ul class="tracks">
+								<li>笑顔の作り方〜キムチ〜</li>
 				
-				<li>笑顔の作り方〜キムチ〜</li>
-				<li>ココロハレテ</li>
-				<li>だいじょうぶっ！</li>
+								<li>ココロハレテ</li>
 				
-			</ul>
-			
-    </details>
+								<li>だいじょうぶっ！</li>
+							</ul>
+						</details>
 
-    <details class="release">
-			
-      <summary class="release-summary">
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2017年11月22日
+								</span>
+
+								<span class="release-title">									
+									フレーフレーわたし（SINGLE）									
+								</span>
+							</summary>
+							
+							<ul class="tracks">
+								<li>フレーフレーわたし</li>
 				
-		<span class="release-date">2017年11月22日</span>
-		
-		<span class="release-title">フレーフレーわたし（SINGLE）</span>
-		
-		</summary>
-		
-			<ul class="tracks">
+								<li>君とクリスマス</li>
 				
-				<li>フレーフレーわたし</li>
-				<li>君とクリスマス</li>
-				<li>いいね！</li>
-				
-			</ul>
-			
-    </details>
+								<li>いいね！</li>
+							</ul>
+						 </details>
 
-    <details class="release">
-      <summary>2018年2月28日：サクラエール（SINGLE）</summary>
-    </details>
+						 <details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2018年2月28日
+								</span>
 
-    <details class="release">
-      <summary>2018年5月30日：チェンジ！（SINGLE）</summary>
-    </details>
+								<span class="release-title">									
+									サクラエール（SINGLE）									
+								</span>	
+							</summary>
+							
+							<ul class="tracks">
+								<li>
+									サクラエール
+								</li>
 
-    <details class="release">
-      <summary>2018年7月16日：私今あなたに恋をしています（配信）</summary>
-    </details>
+								<li>
+									Day by Day
+								</li>
 
-    <details class="release">
-      <summary>2018年8月15日：僕らのスタート（配信）</summary>
-    </details>
+								<li>
+									ふたつの羽
+								</li>
+							</ul>
+						</details>
+						
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2018年5月30日
+								</span>
 
-    <details class="release">
-      <summary>2018年10月17日：Yeah!Yeah!（ALBUM）</summary>
-    </details>
+								<span class="release-title">									
+									チェンジっ！（SINGLE）									
+								</span>	
+							</summary>
+							
+							<ul class="tracks">
+								<li>
+									チェンジっ！
+								</li>
 
-    <details class="release">
-      <summary>2019年2月21日：ウタコク（配信）</summary>
-    </details>
+								<li>
+									いつも一緒に
+								</li>
 
-    <details class="release">
-      <summary>2019年4月24日：little flower（SINGLE）</summary>
-    </details>
+								<li>
+									もしも願いが叶うなら☆
+								</li>
+							</ul>
+						</details>
 
-    <details class="release">
-      <summary>2019年8月21日：ひとりよがり（SINGLE）</summary>
-    </details>
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2018年7月16日
+								</span>
 
-    <details class="release">
-      <summary>2019年10月14日：Call me（配信）</summary>
-    </details>
+								<span class="release-title">									
+									私今あなたに恋をしています（配信）									
+								</span>	
+							</summary>
+							
+							<ul class="tracks">
+								<li>
+									私今あなたに恋をしています
+								</li>
+							</ul>
+						</details>
 
-    <details class="release">
-      <summary>2019年10月14日：画像（配信）</summary>
-    </details>
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2018年8月15日
+								</span>
 
-    <details class="release">
-      <summary>2019年12月16日：話がある（配信）</summary>
-    </details>
+								<span class="release-title">
+									僕らのスタート（配信）
+								</span>
+							</summary>
 
-    <details class="release">
-      <summary>2020年1月15日：Good day（SINGLE）</summary>
-    </details>
+							<ul class="tracks">
+								<li>
+									僕らのスタート
+								</li>
+							</ul>
+						</details>
 
-    <details class="release">
-      <summary>2020年2月12日：I（ALBUM）</summary>
-    </details>
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									  2018年10月17日
+								</span>
 
-    <details class="release">
-      <summary>2020年8月31日：朝になったら削除します（配信）</summary>
-    </details>
+								<span class="release-title">
+									Yeah!Yeah!（ALBUM）
+								</span>
+							</summary>
 
-  </div>
-</section>
+							<ul class="tracks">
+								<li>
+									ココロハレテ
+								</li>
 
-    <!-- イベントログ -->
-    <section id="timeline">
-        <h2>イベント・ライブログ</h2>
-        <p class="section-note">参加したイベントの日や、配信を観た日をメモするコーナー。</p>
+								<li>
+									フレーフレーわたし
+								</li>
 
-        <div class="card-list">
-            <div class="card">
-                <span class="tag">Live / Event</span>
-                <h3>2025-00-00 ○○ライブ</h3>
+								<li>
+									この夕日は誰かの朝日なんだ
+								</li>
+
+								<li>
+									チェンジっ！
+								</li>
+
+								<li>
+									ミライステップ
+								</li>
+
+								<li>
+									私今あなたに恋をしています
+								</li>
+
+								<li>
+									You Your Yours
+								</li>
+
+								<li>
+									僕らのスタート
+								</li>
+
+								<li>
+									サクラエール
+								</li>
+
+								<li>
+									あの日に戻れるなら・・・
+								</li>
+
+								<li>
+									ナナ色のうた
+								</li>
+
+								<li>
+									笑顔の作り方〜キムチ〜
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2019年2月21日
+								</span>
+
+								<span class="release-title">
+									ウタコク（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									僕らのスタート
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2019年4月24日
+								</span>
+
+								<span class="release-title">
+									little flower（SINGLE）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									little flower
+								</li>
+
+								<li>
+									ウタコク
+								</li>
+
+								<li>
+									WE CAN！
+								</li>
+
+								<li>
+									私へ。
+								</li>
+
+								<li>
+									You Your Yours（ライブ音源）
+								</li>
+
+								<li>
+									私今あなたに恋をしています（ライブ音源）
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2019年8月21日
+								</span>
+
+								<span class="release-title">
+									ひとりよがり（SINGLE）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									ひとりよがり
+								</li>
+
+								<li>
+									恋する気持ち
+								</li>
+
+								<li>
+									ふたり
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2019年10月14日
+								</span>
+
+								<span class="release-title">
+									Call me（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									Call me
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2019年10月14日
+								</span>
+
+								<span class="release-title">
+									面影（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									面影
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2019年12月16日
+								</span>
+
+								<span class="release-title">
+									話がある（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									話がある
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2020年1月15日
+								</span>
+
+								<span class="release-title">
+									Good day（SINGLE）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									Good day
+								</li>
+
+								<li>
+									はたらくうた
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2020年2月12日
+								</span>
+
+								<span class="release-title">
+									I（ALBUM）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									little flower
+								</li>
+
+								<li>
+									Like it feat.Rude-α
+								</li>
+
+								<li>
+									話がある
+								</li>
+
+								<li>
+									ホントのコト
+								</li>
+
+								<li>
+									面影
+								</li>
+
+								<li>
+									ひとりよがり
+								</li>
+
+								<li>
+									Call me
+								</li>
+
+								<li>
+									Just do it
+								</li>
+
+								<li>
+									20
+								</li>
+
+								<li>
+									music
+								</li>
+
+								<li>
+									Good day
+								</li>
+
+								<li>
+									二子玉川
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2020年8月31日
+								</span>
+
+								<span class="release-title">
+									朝になったら削除します（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									朝になったら削除します
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2021年2月3日
+								</span>
+
+								<span class="release-title">
+									まちぼうけ（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									まちぼうけ
+								</li>
+
+								<li>
+									DRIVE
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2021年3月27日
+								</span>
+
+								<span class="release-title">
+									キミとなら（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									キミとなら
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2021年4月7日
+								</span>
+
+								<span class="release-title">
+									ノーメイク（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									ノーメイク
+								</li>
+
+								<li>
+									タラレバ
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2021年8月30日
+								</span>
+
+								<span class="release-title">
+									Film（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									Film
+								</li>
+
+								<li>
+									すばらしい日
+								</li>
+
+								<li>
+									SUNNY
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2021年11月24日
+								</span>
+
+								<span class="release-title">
+									あなたがいて（ALBUM）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									なんかさ
+								</li>
+
+								<li>
+									This is a Love Story
+								</li>
+
+								<li>
+									Film
+								</li>
+
+								<li>
+									ロードムービー
+								</li>
+
+								<li>
+									おやすみ
+								</li>
+
+								<li>
+									キミとなら
+								</li>
+
+								<li>
+									2歳の記憶
+								</li>
+
+								<li>
+									ノーメイク
+								</li>
+
+								<li>
+									朝になったら削除します
+								</li>
+
+								<li>
+									まちぼうけ
+								</li>
+
+								<li>
+									ライオンの居場所
+								</li>
+
+								<li>
+									雨の日は
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年4月8日
+								</span>
+
+								<span class="release-title">
+									オーマイガール（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									オーマイガール
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年5月20日
+								</span>
+
+								<span class="release-title">
+									Me（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									Me
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年6月24日
+								</span>
+
+								<span class="release-title">
+									ゆらりふたり（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									ゆらりふたり
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年7月29日
+								</span>
+
+								<span class="release-title">
+									DATE（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									DATE
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年8月30日
+								</span>
+
+								<span class="release-title">
+									4321（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									4321
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年9月30日
+								</span>
+
+								<span class="release-title">
+									いまだけ（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									いまだけ
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年10月28日
+								</span>
+
+								<span class="release-title">
+									リミット（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									リミット
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2022年11月30日
+								</span>
+
+								<span class="release-title">
+									WALK（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									WALK
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2023年2月15日
+								</span>
+
+								<span class="release-title">
+									Seeker（ALBUM）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									Seeker
+								</li>
+
+								<li>
+									オーマイガール
+								</li>
+
+								<li>
+									Me
+								</li>
+
+								<li>
+									ゆらりふたり
+								</li>
+
+								<li>
+									DATE
+								</li>
+
+								<li>
+									4321
+								</li>
+
+								<li>
+									いまだけ
+								</li>
+
+								<li>
+									リミット
+								</li>
+
+								<li>
+									WALK
+								</li>
+
+								<li>
+									Life Goes On
+								</li>
+
+								<li>
+									今が一番ここちいい
+								</li>
+
+								<li>
+									カンパイ
+								</li>
+							</ul>
+						</details>
+
+						<details class="release">
+							<summary class="release-summary">
+								<span class="release-date">
+									2023年9月23日
+								</span>
+
+								<span class="release-title">
+									この雨がやんだら（配信）
+								</span>
+							</summary>
+
+							<ul class="tracks">
+								<li>
+									この雨がやんだら
+								</li>
+							</ul>
+						</details>
+					</div>
+				</section>
+
+				<!-- 過去のライブ、イベント -->
+				<section id="timeline">
+					<h2>LIVE / EVENT etc. </h2>
+
+					<p class="section-note">過去のLIVEやEVENT、配信の一覧。</p>
+
+					<div class="card-list">
+						<div class="card">
+							<span class="tag">Live</span>
+							
+							<li></li>
                 <p class="small">
                     ・セトリで印象に残った曲<br>
                     ・MCで覚えておきたい言葉<br>
                     ・会場の雰囲気、自分の気分メモ。
+                </p>
+            </div>
+
+			 <div class="card">
+                <span class="tag">Event</span>
+                <h3>出演イベント</h3>
+                <p class="small">
+                    アーカイブやテレビ出演を見た日をメモしておく用カード。
                 </p>
             </div>
 
